@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">RecipeRealm</string>
+    <string name="app_name">Login page</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="social_login">Social Login</string>
 </resources>
