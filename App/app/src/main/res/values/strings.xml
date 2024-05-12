@@ -1,7 +1,13 @@
 <resources>
-    <string name="app_name">Login page</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
+    <string name="app_name">Login and Registration with Firebase</string>
     <string name="login">Login</string>
-    <string name="social_login">Social Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="click_to_login">Click to Login</string>
+    <string name="click_to_register">Click to Register</string>
+    <string name="hello_world_1">Hello World 1</string>
+    <string name="logout">Logout</string>
+    <string name="todo">TODO</string>
+
 </resources>

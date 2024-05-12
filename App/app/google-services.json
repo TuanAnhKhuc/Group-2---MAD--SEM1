@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "742326148957",
+    "project_id": "login-register-firebase-c86f2",
+    "storage_bucket": "login-register-firebase-c86f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742326148957:android:383676d57ee9f052da52b4",
+        "android_client_info": {
+          "package_name": "com.example.loginandregistrationwithfirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhhd0-DKTSMJzM8w1iVlVA4_D6gJsxsGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742326148957:android:96e26593bae0795cda52b4",
+        "android_client_info": {
+          "package_name": "com.example.reciperealm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhhd0-DKTSMJzM8w1iVlVA4_D6gJsxsGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
