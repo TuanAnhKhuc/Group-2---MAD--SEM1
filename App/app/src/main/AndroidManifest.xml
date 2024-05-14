@@ -38,7 +38,7 @@
             android:name=".FavoriteRecipes"
             android:exported="false" />
         <activity
-            android:name=".Recipes"
+            android:name=".RecipeList"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
