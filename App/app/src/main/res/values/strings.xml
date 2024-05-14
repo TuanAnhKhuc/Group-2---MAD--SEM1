@@ -9,5 +9,7 @@
     <string name="hello_world_1">Hello World 1</string>
     <string name="logout">Logout</string>
     <string name="todo">TODO</string>
+    <string name="recipe_realm">Recipe Realm</string>
+    <string name="loading">Loading…</string>
 
 </resources>

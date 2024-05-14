@@ -10,7 +10,7 @@
     tools:context=".Login">
 
     <TextView
-        android:text="@string/login"
+        android:text="@string/recipe_realm"
         android:textSize="23sp"
         android:gravity="center"
         android:textStyle="bold"
