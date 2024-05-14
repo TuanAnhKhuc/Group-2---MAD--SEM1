@@ -1,10 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FavoriteRecipes">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="Testing"/>
+    <Button
+        android:id="@+id/RecipeList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recipes"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="177dp" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+    <Button
+        android:id="@+id/FavRecipes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Favorite Recipes"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="256dp" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+    <Button
+        android:id="@+id/Planner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Planner"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="341dp" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+    <Button
+        android:id="@+id/Profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="423dp" />
+
+</LinearLayout>
