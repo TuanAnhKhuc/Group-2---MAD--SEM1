@@ -1,10 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+
+<!-- activity_planner.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Planner">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#4CAF50">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Time Buttons -->
+    <Button
+        android:id="@+id/buttonMorning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Morning"/>
+
+    <Button
+        android:id="@+id/buttonNoon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Noon"/>
+
+    <Button
+        android:id="@+id/buttonNight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Night"/>
+
+    <!-- Weekdays Placeholder -->
+    <LinearLayout
+        android:id="@+id/layoutWeekdays"
+        android:layout_width="match_parent"
+        android:layout_height="356dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/buttonSunday"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Sunday" />
+
+        <Button
+            android:id="@+id/buttonMonday"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Monday" />
+
+        <Button
+            android:id="@+id/buttonTuesday"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Tuesday" />
+
+        <Button
+            android:id="@+id/buttonWednesday"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Wednesday" />
+
+
+        <Button
+            android:id="@+id/buttonThursday"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Thursday" />
+
+        <Button
+            android:id="@+id/buttonFriday"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Friday" />
+
+        <Button
+            android:id="@+id/buttonSaturday"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Saturday" />
+
+        <!-- Add other weekdays... -->
+
+    </LinearLayout>
+
+    <!-- Recipe Selection Placeholder -->
+    <LinearLayout
+        android:id="@+id/layoutRecipes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/buttonFavRecipes"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Fav Recipes"/>
+
+        <Button
+            android:id="@+id/buttonSearchRecipes"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Search for recipes"/>
+
+    </LinearLayout>
+</LinearLayout>
