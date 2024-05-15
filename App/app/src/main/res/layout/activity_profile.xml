@@ -1,134 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_gray"
-    tools:context=".Profile">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="15dp"
+    tools:context=".Login">
 
-    <LinearLayout
+    <TextView
+        android:text="@string/user_profile"
+        android:textSize="23sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content"/>
 
-        <RelativeLayout
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/username"
+            android:hint="@string/username"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="#5CC09F">
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:id="@+id/imageView_profile_dp"
-                android:layout_centerInParent="true"
-                android:background="@drawable/no_profile_pic"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView_show_welcome"
-                android:layout_below="@id/imageView_profile_dp"
-                android:hint="@string/loading"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="@color/white"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/profile_email"
+            android:hint="@string/email"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="15dp"
-            android:layout_margin="15dp"
-            android:background="@color/white">
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-<!--Show name-->
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:id="@+id/ic_profile"
-                android:background="@drawable/ic_profile"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView_show_full_name"
-                android:layout_alignStart="@id/ic_profile"
-                android:hint="@string/loading"
-                android:layout_marginStart="50dp"
-                android:textSize="18sp"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/date_of_birth"
+            android:hint="@string/date_of_birth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/textView_show_full_name"
-                android:background="@android:color/darker_gray"
-                android:id="@+id/divider_name"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-<!--Show email-->
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:id="@+id/ic_email"
-                android:background="@drawable/ic_email"
-                android:layout_below="@id/divider_name"
-                android:layout_marginTop="20dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView_show_email"
-                android:layout_alignStart="@id/ic_email"
-                android:hint="@string/loading"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="50dp"
-                android:layout_below="@id/divider_name"
-                android:textSize="18sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="80dp"
-                android:layout_below="@id/textView_show_full_name"
-                android:background="@android:color/darker_gray"
-                android:id="@+id/divider_email"/>
-
-<!-- Show date of Birth-->
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:id="@+id/ic_dob"
-                android:background="@drawable/ic_dob"
-                android:layout_below="@id/ic_email"
-                android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView_show_dob"
-                android:layout_alignStart="@id/ic_dob"
-                android:hint="@string/loading"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="50dp"
-                android:layout_below="@id/divider_email"
-                android:textSize="18sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/textView_show_dob"
-                android:background="@android:color/darker_gray"
-                android:id="@+id/divider_dob"/>
-
-
-        </RelativeLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/food_preference"
+            android:hint="@string/food_prefernce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 
-    </LinearLayout>
 
-</ScrollView>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:text="@string/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:id="@+id/edit_profile"
+        android:text="@string/edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>
