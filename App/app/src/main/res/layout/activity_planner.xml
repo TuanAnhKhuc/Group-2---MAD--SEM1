@@ -8,84 +8,111 @@
     android:padding="16dp"
     android:background="#4CAF50">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
     <!-- Time Buttons -->
     <Button
         android:id="@+id/buttonMorning"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="@color/dark_purple"
         android:text="Morning"/>
 
     <Button
         android:id="@+id/buttonNoon"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/dark_purple"
         android:text="Noon"/>
 
     <Button
         android:id="@+id/buttonNight"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/dark_purple"
+        android:layout_marginStart="5dp"
         android:text="Night"/>
+    </LinearLayout>
 
     <!-- Weekdays Placeholder -->
     <LinearLayout
         android:id="@+id/layoutWeekdays"
         android:layout_width="match_parent"
-        android:layout_height="356dp"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/buttonSunday"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/dark_purple"
             android:layout_weight="0"
-            android:text="Sunday" />
+            android:text="Su" />
 
         <Button
             android:id="@+id/buttonMonday"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="Monday" />
+            android:backgroundTint="@color/dark_purple"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="M" />
 
         <Button
             android:id="@+id/buttonTuesday"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="Tuesday" />
+            android:backgroundTint="@color/dark_purple"
+            android:layout_marginEnd="5dp"
+            android:text="Tu" />
 
         <Button
             android:id="@+id/buttonWednesday"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="Wednesday" />
+            android:backgroundTint="@color/dark_purple"
+            android:text="W" />
 
+        <!-- Add other weekdays... -->
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutWeekdays2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2.5dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/buttonThursday"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="Thursday" />
+            android:backgroundTint="@color/dark_purple"
+            android:text="Th" />
 
         <Button
             android:id="@+id/buttonFriday"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="Friday" />
+            android:backgroundTint="@color/dark_purple"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="F" />
 
         <Button
             android:id="@+id/buttonSaturday"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="Saturday" />
-
-        <!-- Add other weekdays... -->
+            android:backgroundTint="@color/dark_purple"
+            android:text="S" />
 
     </LinearLayout>
 
@@ -94,22 +121,93 @@
         android:id="@+id/layoutRecipes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone">
-
-        <Button
-            android:id="@+id/buttonFavRecipes"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Fav Recipes"/>
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/buttonSearchRecipes"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Search for recipes"/>
+            android:backgroundTint="@color/dark_purple"
+            android:text="Choose Recipe"/>
+
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time: "
+            android:textSize="25dp"
+            android:textStyle="bold">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutTimeChoice"
+            android:text="Choose a Time..."
+            android:textSize="25dp"
+            android:textStyle="italic">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Day: "
+            android:textSize="25dp"
+            android:textStyle="bold">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutDayChoice"
+            android:text="Choose a Day..."
+            android:textSize="25dp"
+            android:textStyle="italic">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recipe: "
+            android:textSize="25dp"
+            android:textStyle="bold">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutRecipeChoice"
+            android:text="Choose a Recipe..."
+            android:textSize="25dp"
+            android:textStyle="italic">
+        </TextView>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/addPlannerbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/dark_purple"
+        android:text="Add to Planner"
+        android:textSize="20dp">
+
+    </Button>
 </LinearLayout>

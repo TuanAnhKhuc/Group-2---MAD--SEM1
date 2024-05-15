@@ -61,7 +61,13 @@
             android:layout_height="wrap_content"
             android:text="Recipe Instructions"
             tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/addToPlanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Add to Planner">
 
+        </Button>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
