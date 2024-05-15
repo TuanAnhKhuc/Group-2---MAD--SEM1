@@ -34,6 +34,17 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/user_id"
+            android:hint="@string/user_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/profile_email"
             android:hint="@string/email"
             android:layout_width="match_parent"
@@ -57,13 +68,10 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/food_preference"
-            android:hint="@string/food_prefernce"
+            android:hint="@string/food_preference"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
     <ProgressBar
         android:id="@+id/progress_bar"

@@ -16,6 +16,7 @@
     <string name="date_of_birth">Date of Birth</string>
     <string name="username">Username</string>
     <string name="user_profile">User Profile</string>
-    <string name="food_prefernce">Food Prefernce</string>
+    <string name="food_preference">Food Preference</string>
+    <string name="user_id">User ID</string>
 
 </resources>
