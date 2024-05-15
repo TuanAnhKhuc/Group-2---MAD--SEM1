@@ -8,14 +8,23 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Planner extends AppCompatActivity {
@@ -24,11 +33,17 @@ public class Planner extends AppCompatActivity {
     private Button buttonSunday, buttonMonday, buttonTuesday, buttonWednesday, buttonThursday, buttonFriday, buttonSaturday;
     private TextView timeChoice, dayChoice, recipeChoice;
     Bundle extras;
+    FirebaseFirestore db;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planner);
+
+        db = FirebaseFirestore.getInstance();
+        fAuth = FirebaseAuth.getInstance();
+        String id = fAuth.getUid();
 
         // Initialize buttons and TextView
         buttonMorning = findViewById(R.id.buttonMorning);
@@ -50,7 +65,7 @@ public class Planner extends AppCompatActivity {
         buttonSaturday = findViewById(R.id.buttonSaturday);
 
         if(getIntent().getExtras() != null){
-            Bundle extras = getIntent().getExtras();
+            extras = getIntent().getExtras();
 
             loadPlanner();
 
@@ -130,6 +145,47 @@ public class Planner extends AppCompatActivity {
             }
         });
 
+        buttonAddPlanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!String.valueOf(timeChoice.getText()).equals("Choose a Time...") || !String.valueOf(dayChoice.getText()).equals("Choose a Day...") || !String.valueOf(recipeChoice.getText()).equals("Choose a Recipe...")){
+                    String doc = id + timeChoice.getText().toString() + dayChoice.getText().toString();
+
+                    Map<String, Object> plan = new HashMap<>();
+                    plan.put("timeChoice", timeChoice.getText().toString());
+                    plan.put("dayChoice", dayChoice.getText().toString());
+                    plan.put("recipeName", recipeChoice.getText().toString());
+                    plan.put("recipeDesc", extras.getString("recipeDesc"));
+                    plan.put("recipeIngredients", extras.getString("recipeIngredients"));
+                    plan.put("recipeInstructions", extras.getString("recipeInstructions"));
+
+                    db.collection("plans").document(doc)
+                            .set(plan)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d("Planner", "DocumentSnapshot successfully written!");
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w("Planner", "Error writing document", e);
+                                }
+                            });
+
+                    SharedPreferences sharedPreferences = getSharedPreferences("plannerSelections", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("savedTimeChoice", "Choose a Time...");
+                    editor.putString("savedDayChoice", "Choose a Day...");
+
+
+                }else {
+                    Toast.makeText(Planner.this, "Please Make all Choices.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 
     }
 
@@ -200,8 +256,6 @@ public class Planner extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("savedTimeChoice", savedTimeChoice);
         editor.putString("savedDayChoice", savedDayChoice);
-
-        boolean isSaved = editor.commit();
 
     }
 
