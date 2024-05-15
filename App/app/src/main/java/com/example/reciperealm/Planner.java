@@ -28,7 +28,6 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Planner extends AppCompatActivity {
-    private LinearLayout layoutWeekdays, layoutRecipes;
     private Button buttonAddPlanner, buttonSearchRecipes, buttonMorning, buttonNoon, buttonNight;
     private Button buttonSunday, buttonMonday, buttonTuesday, buttonWednesday, buttonThursday, buttonFriday, buttonSaturday;
     private TextView timeChoice, dayChoice, recipeChoice;
@@ -66,9 +65,7 @@ public class Planner extends AppCompatActivity {
 
         if(getIntent().getExtras() != null){
             extras = getIntent().getExtras();
-
             loadPlanner();
-
             recipeChoice.setText(extras.getString("recipeName"));
         }
 
@@ -77,7 +74,7 @@ public class Planner extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 savePlanner();
-                openRecipeList(extras);
+                openRecipeList();
             }
         });
 
@@ -148,36 +145,33 @@ public class Planner extends AppCompatActivity {
         buttonAddPlanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!String.valueOf(timeChoice.getText()).equals("Choose a Time...") || !String.valueOf(dayChoice.getText()).equals("Choose a Day...") || !String.valueOf(recipeChoice.getText()).equals("Choose a Recipe...")){
-                    String doc = id + timeChoice.getText().toString() + dayChoice.getText().toString();
+                if (extras != null){
+                    if (!timeChoice.getText().toString().isEmpty() || !dayChoice.getText().toString().isEmpty()) {
+                        String doc = id + timeChoice.getText().toString() + dayChoice.getText().toString();
 
-                    Map<String, Object> plan = new HashMap<>();
-                    plan.put("timeChoice", timeChoice.getText().toString());
-                    plan.put("dayChoice", dayChoice.getText().toString());
-                    plan.put("recipeName", recipeChoice.getText().toString());
-                    plan.put("recipeDesc", extras.getString("recipeDesc"));
-                    plan.put("recipeIngredients", extras.getString("recipeIngredients"));
-                    plan.put("recipeInstructions", extras.getString("recipeInstructions"));
+                        Map<String, Object> plan = new HashMap<>();
+                        plan.put("timeChoice", timeChoice.getText().toString());
+                        plan.put("dayChoice", dayChoice.getText().toString());
+                        plan.put("recipeName", recipeChoice.getText().toString());
+                        plan.put("recipeDesc", extras.getString("recipeDesc"));
+                        plan.put("recipeIngredients", extras.getString("recipeIngredients"));
+                        plan.put("recipeInstructions", extras.getString("recipeInstructions"));
 
-                    db.collection("plans").document(doc)
-                            .set(plan)
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d("Planner", "DocumentSnapshot successfully written!");
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.w("Planner", "Error writing document", e);
-                                }
-                            });
-
-                    SharedPreferences sharedPreferences = getSharedPreferences("plannerSelections", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("savedTimeChoice", "Choose a Time...");
-                    editor.putString("savedDayChoice", "Choose a Day...");
+                        db.collection("plans").document(doc)
+                                .set(plan)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Log.d("Planner", "DocumentSnapshot successfully written!");
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.w("Planner", "Error writing document", e);
+                                    }
+                                });
+                    }
 
 
                 }else {
@@ -240,18 +234,15 @@ public class Planner extends AppCompatActivity {
     }
 
     //Show recipe list section
-    private void openRecipeList(Bundle extras) {
+    private void openRecipeList() {
         // Create an Intent to start the Recipes activity
         Intent intent = new Intent(Planner.this, RecipeList.class);
-
         startActivity(intent);
     }
 
     private void savePlanner() {
-        String savedTimeChoice = String.valueOf(timeChoice.getText());
-        String savedDayChoice = String.valueOf(dayChoice.getText());
-
-
+        String savedTimeChoice = timeChoice.getText().toString();
+        String savedDayChoice = dayChoice.getText().toString();
         SharedPreferences sharedPreferences = getSharedPreferences("plannerSelections", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("savedTimeChoice", savedTimeChoice);
@@ -261,8 +252,8 @@ public class Planner extends AppCompatActivity {
 
     private void loadPlanner() {
         SharedPreferences sharedPreferences = getSharedPreferences("plannerSelections", Context.MODE_PRIVATE);
-        String savedTimeChoice = sharedPreferences.getString("savedTimeChoice", "Choose a Time...");
-        String savedDayChoice = sharedPreferences.getString("savedDayChoice", "Choose a Day...");
+        String savedTimeChoice = sharedPreferences.getString("savedTimeChoice", "");
+        String savedDayChoice = sharedPreferences.getString("savedDayChoice", "");
 
         timeChoice.setText(savedTimeChoice);
         dayChoice.setText(savedDayChoice);

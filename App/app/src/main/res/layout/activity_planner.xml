@@ -151,7 +151,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/layoutTimeChoice"
-            android:text="Choose a Time..."
+            android:hint="Choose a Time..."
             android:textSize="25dp"
             android:textStyle="italic">
         </TextView>
@@ -172,7 +172,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/layoutDayChoice"
-            android:text="Choose a Day..."
+            android:hint="Choose a Day..."
+            android:text=""
             android:textSize="25dp"
             android:textStyle="italic">
         </TextView>
@@ -193,7 +194,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/layoutRecipeChoice"
-            android:text="Choose a Recipe..."
+            android:hint="Choose a Recipe..."
             android:textSize="25dp"
             android:textStyle="italic">
         </TextView>
