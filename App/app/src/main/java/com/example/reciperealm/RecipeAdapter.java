@@ -1,6 +1,7 @@
 package com.example.reciperealm;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,19 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.MyViewHold
         holder.serves.setText(String.valueOf(recipe.Serves));
         holder.prepTime.setText(recipe.Prep);
         holder.cookTime.setText(recipe.Cook);
+
+        holder.recipeName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, RecipesPage.class);
+                intent.putExtra("recipeName", recipesArrayList.get(position).getName());
+                intent.putExtra("recipeDesc", recipesArrayList.get(position).getDescription());
+                intent.putExtra("recipeIngredients", recipesArrayList.get(position).getIngredients());
+                intent.putExtra("recipeInstruct", recipesArrayList.get(position).getInstructions());
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
