@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button recipeListbtn, favRecipebtn, plannerbtn, profilebtn;
+    private Button recipeListbtn, plannerListbtn, plannerbtn, profilebtn;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recipeListbtn = findViewById(R.id.RecipeList);
-        favRecipebtn = findViewById(R.id.FavRecipes);
+        plannerListbtn = findViewById(R.id.PlannerList);
         plannerbtn = findViewById(R.id.Planner);
         profilebtn = findViewById(R.id.Profile);
 
@@ -37,11 +37,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        favRecipebtn.setOnClickListener(new View.OnClickListener() {
+        plannerListbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // opening a new activity on button click
-                Intent i = new Intent(MainActivity.this,FavoriteRecipes.class);
+                Intent i = new Intent(MainActivity.this, PlannerList.class);
                 startActivity(i);
             }
         });
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // opening a new activity on button click
-                Intent i = new Intent(MainActivity.this,Planner.class);
+                Intent i = new Intent(MainActivity.this, Planner.class);
                 startActivity(i);
             }
         });
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // opening a new activity on button click
-                Intent i = new Intent(MainActivity.this,Profile.class);
+                Intent i = new Intent(MainActivity.this, Profile.class);
                 startActivity(i);
             }
         });

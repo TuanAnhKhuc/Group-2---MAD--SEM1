@@ -9,10 +9,6 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:text="Testing"/>
     <Button
         android:id="@+id/RecipeList"
         android:layout_width="match_parent"
@@ -24,10 +20,10 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"/>
     <Button
-        android:id="@+id/FavRecipes"
+        android:id="@+id/PlannerList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Favorite Recipes"
+        android:text="List of Meal Plans"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="256dp" />
     <GridLayout
