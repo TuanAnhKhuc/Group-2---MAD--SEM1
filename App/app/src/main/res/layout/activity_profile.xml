@@ -26,7 +26,8 @@
             android:id="@+id/username"
             android:hint="@string/username"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:enabled="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -37,7 +38,8 @@
             android:id="@+id/user_id"
             android:hint="@string/user_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:enabled="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -48,7 +50,8 @@
             android:id="@+id/profile_email"
             android:hint="@string/email"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:enabled="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -59,7 +62,8 @@
             android:id="@+id/date_of_birth"
             android:hint="@string/date_of_birth"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:enabled="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -70,7 +74,8 @@
             android:id="@+id/food_preference"
             android:hint="@string/food_preference"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:enabled="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <ProgressBar
@@ -83,7 +88,8 @@
         android:id="@+id/btn_save"
         android:text="@string/save"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
     <TextView
         android:textStyle="bold"
