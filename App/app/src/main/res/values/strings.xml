@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Login and Registration with Firebase</string>
+    <string name="app_name">Recipe Realm</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
