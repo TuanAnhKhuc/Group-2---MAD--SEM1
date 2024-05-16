@@ -8,13 +8,12 @@ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button recipeListbtn, plannerListbtn, plannerbtn, profilebtn;
+    private Button recipeListbtn, plannerListbtn, plannerbtn, profilebtn, logoutbtn;
+    private FirebaseAuth mAuth;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -23,15 +22,19 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        // Initialize FirebaseAuth instance
+        mAuth = FirebaseAuth.getInstance();
+
         recipeListbtn = findViewById(R.id.RecipeList);
         plannerListbtn = findViewById(R.id.PlannerList);
         plannerbtn = findViewById(R.id.Planner);
         profilebtn = findViewById(R.id.Profile);
+        logoutbtn = findViewById(R.id.Logout);
 
         recipeListbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // opening a new activity on button click
+                // Open RecipeList activity
                 Intent i = new Intent(MainActivity.this, RecipeList.class);
                 startActivity(i);
             }
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         plannerListbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // opening a new activity on button click
+                // Open PlannerList activity
                 Intent i = new Intent(MainActivity.this, PlannerList.class);
                 startActivity(i);
             }
@@ -49,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         plannerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // opening a new activity on button click
+                // Open Planner activity
                 Intent i = new Intent(MainActivity.this, Planner.class);
                 startActivity(i);
             }
@@ -58,11 +61,21 @@ public class MainActivity extends AppCompatActivity {
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // opening a new activity on button click
+                // Open Profile activity
                 Intent i = new Intent(MainActivity.this, Profile.class);
                 startActivity(i);
             }
         });
 
+        logoutbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Sign out the user and open Login activity
+                mAuth.signOut();
+                Intent i = new Intent(MainActivity.this, Login.class);
+                startActivity(i);
+                finish();  // Close the MainActivity so user can't return to it by pressing back button
+            }
+        });
     }
 }

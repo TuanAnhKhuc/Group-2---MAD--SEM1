@@ -47,4 +47,16 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="423dp" />
 
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+
+    <!-- Adding the logout button -->
+    <Button
+        android:id="@+id/Logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="510dp" />
 </LinearLayout>
