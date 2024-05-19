@@ -1,15 +1,15 @@
 package com.example.reciperealm;
 
-import java.util.Map;
-
+// Recipe Class Created to initialise the Recipe data from FireBase
 public class Recipes {
     String Cook, Description, Name, Prep, Ingredients, Instructions;
     long Serves;
 
+    //Empty Constructor required for FireBase
     public Recipes(){
 
     }
-
+    //Full Constructor for Recipe Class
     public Recipes(String cook, String description, String name, String prep, long serves, String ingredients, String instructions) {
         Cook = cook;
         Description = description;
@@ -19,7 +19,7 @@ public class Recipes {
         Ingredients = ingredients;
         Instructions = instructions;
     }
-
+    //Getters and Setters for Recipe Class
     public String getCook() {
         return Cook;
     }

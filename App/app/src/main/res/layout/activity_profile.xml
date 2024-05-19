@@ -1,106 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="15dp"
-    tools:context=".Profile">
-
-    <TextView
-        android:text="@string/user_profile"
-        android:textSize="23sp"
+    android:background="@color/Background">
+    <!-- Adding Header-->
+    <TableRow
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/Highlight"
+        android:layout_alignParentTop="true"
+        >
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Recipe Realm"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"/>
+    </TableRow>
+    <!-- Adds the Users Profile Information-->
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:gravity="center"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:padding="15dp"
+        tools:context=".Profile">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username"
-            android:hint="@string/username"
+        <TextView
+            android:text="@string/user_profile"
+            android:textSize="23sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/user_id"
-            android:hint="@string/user_id"
+            android:layout_height="wrap_content"/>
+        <!-- Shows Username -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/profile_email"
-            android:hint="@string/email"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username"
+                android:hint="@string/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Shows User ID-->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/date_of_birth"
-            android:hint="@string/date_of_birth"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_id"
+                android:hint="@string/user_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Shows User Email-->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/food_preference"
-            android:hint="@string/food_preference"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/profile_email"
+                android:hint="@string/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Shows User Birth Date-->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/date_of_birth"
+                android:hint="@string/date_of_birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Shows Users Food Preferences-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/food_preference"
+                android:hint="@string/food_preference"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Loading Bar -->
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <!-- Adds Button to save Profile Changes-->
+        <Button
+            android:id="@+id/btn_save"
+            android:text="@string/save"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:enabled="false"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        android:id="@+id/btn_save"
-        android:text="@string/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"/>
-
-    <TextView
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:id="@+id/edit_profile"
-        android:text="@string/edit_profile"
+            android:visibility="gone"/>
+        <!-- Adds Pressable text to enable Edit mode-->
+        <TextView
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:id="@+id/edit_profile"
+            android:text="@string/edit_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-
-
-</LinearLayout>
+        android:layout_height="60dp"
+        android:background="@color/Highlight"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!-- Adding Home Button-->
+            <Button
+                android:id="@+id/homeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Home"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+    </TableRow>
+</RelativeLayout>

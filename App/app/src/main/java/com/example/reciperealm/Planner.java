@@ -28,10 +28,12 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Planner extends AppCompatActivity {
+    //Declare UI elements
     private Button buttonAddPlanner, buttonSearchRecipes, buttonMorning, buttonNoon, buttonNight;
     private Button buttonSunday, buttonMonday, buttonTuesday, buttonWednesday, buttonThursday, buttonFriday, buttonSaturday;
     private TextView timeChoice, dayChoice, recipeChoice;
     Bundle extras;
+    //Declare Firebase elements
     FirebaseFirestore db;
     FirebaseAuth fAuth;
 
@@ -40,6 +42,7 @@ public class Planner extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planner);
 
+        //initialise Firebase elements
         db = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
         String id = fAuth.getUid();
@@ -63,9 +66,9 @@ public class Planner extends AppCompatActivity {
         buttonFriday = findViewById(R.id.buttonFriday);
         buttonSaturday = findViewById(R.id.buttonSaturday);
 
+        //Check for Recipe Name being passed through
         if(getIntent().getExtras() != null){
             extras = getIntent().getExtras();
-            loadPlanner();
             recipeChoice.setText(extras.getString("recipeName"));
         }
 
@@ -73,7 +76,6 @@ public class Planner extends AppCompatActivity {
         buttonSearchRecipes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                savePlanner();
                 openRecipeList();
             }
         });
@@ -142,13 +144,18 @@ public class Planner extends AppCompatActivity {
             }
         });
 
+
+        //Set onClickListener for addPlanner button
         buttonAddPlanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Check for intent, intent = recipe chosen
                 if (extras != null){
+                    //Check if time and day has been chosen
                     if (!timeChoice.getText().toString().isEmpty() || !dayChoice.getText().toString().isEmpty()) {
+                        //Generate Plan document string
                         String doc = id + timeChoice.getText().toString() + dayChoice.getText().toString();
-
+                        //Create and Populate Plan map for fireStore
                         Map<String, Object> plan = new HashMap<>();
                         plan.put("timeChoice", timeChoice.getText().toString());
                         plan.put("dayChoice", dayChoice.getText().toString());
@@ -156,17 +163,24 @@ public class Planner extends AppCompatActivity {
                         plan.put("recipeDesc", extras.getString("recipeDesc"));
                         plan.put("recipeIngredients", extras.getString("recipeIngredients"));
                         plan.put("recipeInstructions", extras.getString("recipeInstructions"));
+                        plan.put("userID", id);
 
+                        //Create/Update the Plan in FireStore
                         db.collection("plans").document(doc)
                                 .set(plan)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
+                                    //onSuccess returns to MainActivity and tells user
                                     public void onSuccess(Void aVoid) {
+                                        Toast.makeText(Planner.this, "Plan has been submitted.", Toast.LENGTH_SHORT).show();
                                         Log.d("Planner", "DocumentSnapshot successfully written!");
+                                        Intent intent = new Intent(Planner.this, MainActivity.class);
+                                        startActivity(intent);
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
+                                    //onFailure informs user
                                     public void onFailure(@NonNull Exception e) {
                                         Log.w("Planner", "Error writing document", e);
                                     }
@@ -175,19 +189,32 @@ public class Planner extends AppCompatActivity {
 
 
                 }else {
+                    //If missing components Prompts user to make choices
                     Toast.makeText(Planner.this, "Please Make all Choices.", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        //Declare and Initialise Home Button
+        Button homeBtn = findViewById(R.id.homeButton);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Planner.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
 
     }
 
+    //Ease of Use command to set Users Choice of Time
     private void setTimeChoice(String time){
         buttonMorning.setBackgroundColor(Color.LTGRAY);
         buttonNoon.setBackgroundColor(Color.LTGRAY);
         buttonNight.setBackgroundColor(Color.LTGRAY);
         if(time.equals("Morning")){
+            //Highlights users Choice
             buttonMorning.setBackgroundColor(Color.BLUE);
         }
         if(time.equals("Noon")){
@@ -199,7 +226,7 @@ public class Planner extends AppCompatActivity {
         timeChoice.setText(time);
         timeChoice.setTypeface(Typeface.DEFAULT);
     }
-
+    //Ease of Use command to set users Choice of Day
     private void setDayChoice(String day){
         buttonSunday.setBackgroundColor(Color.LTGRAY);
         buttonMonday.setBackgroundColor(Color.LTGRAY);
@@ -209,6 +236,7 @@ public class Planner extends AppCompatActivity {
         buttonFriday.setBackgroundColor(Color.LTGRAY);
         buttonSaturday.setBackgroundColor(Color.LTGRAY);
         if(day.equals("Sunday")){
+            //Highlights users choice
             buttonSunday.setBackgroundColor(Color.BLUE);
         }
         if(day.equals("Monday")){
@@ -238,26 +266,6 @@ public class Planner extends AppCompatActivity {
         // Create an Intent to start the Recipes activity
         Intent intent = new Intent(Planner.this, RecipeList.class);
         startActivity(intent);
-    }
-
-    private void savePlanner() {
-        String savedTimeChoice = timeChoice.getText().toString();
-        String savedDayChoice = dayChoice.getText().toString();
-        SharedPreferences sharedPreferences = getSharedPreferences("plannerSelections", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("savedTimeChoice", savedTimeChoice);
-        editor.putString("savedDayChoice", savedDayChoice);
-
-    }
-
-    private void loadPlanner() {
-        SharedPreferences sharedPreferences = getSharedPreferences("plannerSelections", Context.MODE_PRIVATE);
-        String savedTimeChoice = sharedPreferences.getString("savedTimeChoice", "");
-        String savedDayChoice = sharedPreferences.getString("savedDayChoice", "");
-
-        timeChoice.setText(savedTimeChoice);
-        dayChoice.setText(savedDayChoice);
-
     }
 }
 

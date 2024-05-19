@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-
+    //Declare UI elements
     private Button recipeListbtn, plannerListbtn, plannerbtn, profilebtn, logoutbtn;
     private FirebaseAuth mAuth;
 
@@ -25,12 +25,14 @@ public class MainActivity extends AppCompatActivity {
         // Initialize FirebaseAuth instance
         mAuth = FirebaseAuth.getInstance();
 
+        // Initialize UI elements
         recipeListbtn = findViewById(R.id.RecipeList);
         plannerListbtn = findViewById(R.id.PlannerList);
         plannerbtn = findViewById(R.id.Planner);
         profilebtn = findViewById(R.id.Profile);
         logoutbtn = findViewById(R.id.Logout);
 
+        //Set onClickListener for "RecipeList" Button
         recipeListbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+        //Set onClickListener for "PlannerList" Button
         plannerListbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+        //Set onClickListener for "Planner" Button
         plannerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+        //Set onClickListener for "Profile" Button
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+        //Set onClickListener for "Logout" Button
         logoutbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

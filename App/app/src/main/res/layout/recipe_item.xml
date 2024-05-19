@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp">
-
+    <!-- Recipe Item for Recipe List Recycler View-->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,12 +19,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
-
+            <!-- Shows Recipe Name-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvRecipeName"
-                android:text="Recipe Name"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="26dp"
                 android:textStyle="bold"/>
@@ -44,18 +44,19 @@
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
-
+            <!-- Shows Recipe Servings -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvServes"
-                android:text="Serves"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="20dp"/>
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/tvRecipeItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -68,12 +69,12 @@
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
-
+            <!-- Shows Prep Time-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvPrepTime"
-                android:text="Prep time"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="15dp"/>
 
@@ -92,12 +93,12 @@
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
-
+            <!-- Shows Cook Time-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvCookTime"
-                android:text="Cook time"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="15dp"/>
 

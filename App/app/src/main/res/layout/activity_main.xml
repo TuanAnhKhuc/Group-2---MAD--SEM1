@@ -1,62 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:background="@color/Background">
+    <!-- Adding Header-->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/Highlight"
+        android:layout_alignParentTop="true"
+    >
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Recipe Realm"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"/>
+    </TableRow>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- Adding Recipes Button-->
+        <Button
+            android:id="@+id/RecipeList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:layout_marginBottom="7.5dp"
+            android:text="Recipes"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="177dp" />
+        <!-- Adding Planner List Button-->
+        <Button
+            android:id="@+id/PlannerList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7.5dp"
+            android:layout_marginBottom="7.5dp"
+            android:text="List of Meal Plans"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="256dp" />
+        <!-- Adding Planner Button-->
+        <Button
+            android:id="@+id/Planner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7.5dp"
+            android:layout_marginBottom="7.5dp"
+            android:text="Planner"
+            tools:layout_editor_absoluteX="-16dp"
+            tools:layout_editor_absoluteY="341dp" />
+        <!-- Adding Profile Button-->
+        <Button
+            android:id="@+id/Profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7.5dp"
+            android:layout_marginBottom="15dp"
+            android:text="Profile"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="423dp" />
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"/>
-    <Button
-        android:id="@+id/RecipeList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Recipes"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="177dp" />
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="15dp"/>
-    <Button
-        android:id="@+id/PlannerList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="List of Meal Plans"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="256dp" />
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="15dp"/>
-    <Button
-        android:id="@+id/Planner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Planner"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="341dp" />
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="15dp"/>
-    <Button
-        android:id="@+id/Profile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Profile"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="423dp" />
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="15dp"/>
-
-    <!-- Adding the logout button -->
-    <Button
-        android:id="@+id/Logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="510dp" />
-</LinearLayout>
+        <!-- Adding the logout button -->
+        <Button
+            android:id="@+id/Logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:text="Logout"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="510dp" />
+    </LinearLayout>
+</RelativeLayout>

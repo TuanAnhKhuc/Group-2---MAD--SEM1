@@ -6,8 +6,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp">
-
+    <!-- Plan Item for Recipe List Recycler View-->
     <LinearLayout
+        android:id="@+id/tvPlanItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -19,12 +20,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
-
+            <!-- Shows Recipe Name-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvPlanRecipeName"
-                android:text="Recipe Name"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="26dp"
                 android:textStyle="bold"/>
@@ -44,12 +45,12 @@
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
-
+            <!-- Shows Time of day set for plan-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvPlanTime"
-                android:text="Serves"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="20dp"/>
 
@@ -68,12 +69,12 @@
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
-
+            <!-- Shows Day set for Plan-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvPlanDay"
-                android:text="Prep time"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="15dp"/>
 

@@ -1,10 +1,12 @@
 package com.example.reciperealm;
 
+// Plan Class Created to initialise the Plan data from FireBase
 public class Plan {
     String dayChoice, timeChoice, recipeName, recipeDesc, recipeInstructions, recipeIngredients;
 
+    //Empty constructor required for Firebase
     public Plan(){}
-
+    //Full constructor for Plan Class
     public Plan(String dayChoice, String timeChoice, String recipeName, String recipeDesc, String recipeInstructions, String recipeIngredients) {
         this.dayChoice = dayChoice;
         this.timeChoice = timeChoice;
@@ -14,6 +16,7 @@ public class Plan {
         this.recipeIngredients = recipeIngredients;
     }
 
+    //Getters and Setters for Plan Class
     public String getDayChoice() {
         return dayChoice;
     }

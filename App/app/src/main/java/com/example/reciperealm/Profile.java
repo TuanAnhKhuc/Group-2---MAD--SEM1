@@ -1,6 +1,7 @@
 package com.example.reciperealm;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -67,6 +68,17 @@ public class Profile extends AppCompatActivity {
 
         // Get user details from Firebase Authentication
         getUserDetails();
+
+
+        //Declare and Initialise Home Button
+        Button homeBtn = findViewById(R.id.homeButton);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Profile.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void getUserDetails() {

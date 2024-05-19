@@ -5,4 +5,6 @@
     <color name="dark_purple">#6b06b0</color>
     <color name="purple">#8692f7</color>
     <color name="light_gray">#D3D3D3</color>
+    <color name="Highlight">#4CAF50</color>
+    <color name="Background">#f9f6f0</color>
 </resources>

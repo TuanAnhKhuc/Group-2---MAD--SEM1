@@ -6,28 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RecipesPage">
-
+    <!-- Recipe Page for Recipe List Recycler View-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_margin="10dp">
-
+        <!-- Shows Recipe Name-->
         <TextView
             android:id="@+id/pageRecipeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Recipe Name"
+            android:text=""
             android:textSize="20dp"
             android:textStyle="bold"
             android:layout_marginBottom="5dp"
             tools:ignore="MissingConstraints" />
-
+        <!-- Shows Recipe Description-->
         <TextView
             android:id="@+id/pageRecipeDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recipe Description"
+            android:text=""
             android:layout_marginBottom="5dp"
             tools:ignore="MissingConstraints" />
 
@@ -38,12 +38,12 @@
             android:textSize="15dp"
             android:textStyle="bold"
             tools:ignore="MissingConstraints" />
-
+        <!-- Shows Ingredients-->
         <TextView
             android:id="@+id/pageRecipeIngredients"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recipe Ingredients"
+            android:text=""
             android:layout_marginBottom="5dp"
             tools:ignore="MissingConstraints" />
 
@@ -54,17 +54,19 @@
             android:textSize="15dp"
             android:textStyle="bold"
             tools:ignore="MissingConstraints" />
-
+        <!-- Shows Instructions-->
         <TextView
             android:id="@+id/pageRecipeInstructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recipe Instructions"
+            android:text=""
             tools:ignore="MissingConstraints" />
+        <!-- Adds Button to add the Recipe to Plan maker-->
         <Button
             android:id="@+id/addToPlanner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
             android:text="Add to Planner">
 

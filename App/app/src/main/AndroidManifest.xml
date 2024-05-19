@@ -39,9 +39,6 @@
             android:name=".Planner"
             android:exported="false" />
         <activity
-            android:name=".FavoriteRecipes"
-            android:exported="false" />
-        <activity
             android:name=".RecipeList"
             android:exported="false" />
         <activity
